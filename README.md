@@ -12,10 +12,10 @@ This project simulates a real-world document scanner (like CamScanner or Adobe S
 
 #Features
 
-* 📌 Automatic document detection
-* 📐 Perspective transformation (removes tilt)
-* 🧾 Clean scanned output
-* 🖼 Works on real-world images
+* Automatic document detection
+* Perspective transformation (removes tilt)
+* Clean scanned output
+* Works on real-world images
 
 ---
 
