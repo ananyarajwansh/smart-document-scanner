@@ -1,25 +1,16 @@
-# 📄 Smart Document Scanner
+# Smart Document Scanner
 
-A Computer Vision project that detects a document from an image and converts it into a clean, flat, scanned version using OpenCV.
-
----
-
-#Overview
-
-This project simulates a real-world document scanner (like CamScanner or Adobe Scan). It takes an input image, detects the document boundaries, corrects perspective distortion, and produces a clean, readable output.
+This project is a simple implementation of a document scanner using Computer Vision techniques. The goal is to take an image of a document and convert it into a clean, flat, scanned version.
 
 ---
 
-#Features
+## What the project does
 
-* Automatic document detection
-* Perspective transformation (removes tilt)
-* Clean scanned output
-* Works on real-world images
+The program reads an input image, detects the boundaries of the document, and then corrects the perspective so that the document looks like it was scanned from the top. The final output is saved as an image.
 
 ---
 
-#Tech Stack
+## Tools and Libraries Used
 
 * Python
 * OpenCV
@@ -28,77 +19,89 @@ This project simulates a real-world document scanner (like CamScanner or Adobe S
 
 ---
 
-#How It Works
+## How to run the project
 
-1. Load input image
-2. Convert to grayscale
-3. Apply edge detection
-4. Detect contours
-5. Identify document boundary
-6. Apply perspective transform
-7. Enhance final scanned output
+### 1. Install Python
+
+Make sure Python 3 is installed on your system. You can check using:
+
+```
+python3 --version
+```
 
 ---
 
-#How to Run
+### 2. Install required libraries
 
-### 1. Clone the repository
+Open terminal and run:
 
-```bash
-git clone https://github.com/your-username/smart-document-scanner.git
-cd smart-document-scanner
+```
+pip3 install -r requirements.txt
 ```
 
-### 2. Install dependencies
+---
 
-```bash
-pip install -r requirements.txt
+### 3. Add input image
+
+Place your document image inside the project folder and rename it as:
+
+```
+doc.jpg
 ```
 
-### 3. Run the project
+Make sure the document is clearly visible in the image.
 
-```bash
+---
+
+### 4. Run the program
+
+In the terminal, navigate to the project folder and run:
+
+```
 python3 main.py
 ```
 
 ---
 
-#Output
+### 5. Output
 
-The program displays:
+After running the program:
 
-* Original Image
-* Detected Page Boundary
-* Scanned Document
-* Final Enhanced Output
+* The processed images will be displayed
+* The final scanned document will be saved as:
 
----
-
-#Learning Outcomes
-
-* Image preprocessing techniques
-* Edge detection using Canny
-* Contour detection
-* Perspective transformation
-* Real-world application of Computer Vision
+```
+scanned_output.jpg
+```
 
 ---
 
-#Note
+## How it works (in brief)
 
-For already high-quality images, minimal processing is used to avoid over-enhancement and preserve readability.
-
----
-
-#Future Improvements
-
-* 📄 Export scanned document as PDF
-* 📷 Real-time camera scanning
-* 🔍 OCR (Text extraction) integration
+* The image is converted to grayscale
+* Edges are detected to identify boundaries
+* Contours are used to locate the document
+* A perspective transform is applied
+* The final image is cleaned and saved
 
 ---
 
-#Author
+## Notes
 
-**Ananya Rajwansh**
+* The results are best when the document is clearly visible and not heavily blurred
+* For already clear images, minimal processing is applied to avoid distortion
+
+---
+
+## Future Improvements
+
+* Add PDF export
+* Support multiple documents
+* Improve detection for complex backgrounds
+
+---
+
+## Author
+
+Ananya Raj Wansh
 B.Tech CSE (AI & ML), VIT Bhopal
