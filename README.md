@@ -1,107 +1,79 @@
-# Smart Document Scanner
+# 📄 Smart Document Scanner
 
-This project is a simple implementation of a document scanner using Computer Vision techniques. The goal is to take an image of a document and convert it into a clean, flat, scanned version.
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)
 
----
-
-## What the project does
-
-The program reads an input image, detects the boundaries of the document, and then corrects the perspective so that the document looks like it was scanned from the top. The final output is saved as an image.
-
----
-
-## Tools and Libraries Used
-
-* Python
-* OpenCV
-* NumPy
-* Matplotlib
+A lightweight Computer Vision pipeline that transforms raw, skewed photos of physical documents into clean, flat, top-down scans. Built natively using Python and OpenCV.
 
 ---
 
-## How to run the project
+## ✨ Features
 
-### 1. Install Python
-
-Make sure Python 3 is installed on your system. You can check using:
-
-```
-python3 --version
-```
+- **Automated Contour Detection**: Automatically detects the borders of a physical document inside a noisy image using edge detection and morphing.
+- **Perspective Transformation**: Mathematically corrects the skew and angle of the camera to flatten the image (`four_point_transform`).
+- **Image Enhancement**: Converts the image to grayscale and applies light Gaussian smoothing for a clean, professional "scanned" look.
+- **Visual Pipeline Logging**: Uses Matplotlib to step through and display each phase of the computer vision process (Grayscale -> Blur -> Canny Edges -> Detected Boundaries).
 
 ---
 
-### 2. Install required libraries
+## 🛠️ The Computer Vision Pipeline
 
-Open terminal and run:
-
-```
-pip3 install -r requirements.txt
-```
+1. **Pre-processing**: The image is down-scaled for stability, converted to grayscale, and blurred to remove high-frequency noise.
+2. **Edge Detection**: Applies the Canny edge detector to find sharp intensity gradients.
+3. **Morphological Operations**: Dilates and closes gaps in the edges to ensure the document boundary is continuous.
+4. **Contour Extraction**: Finds the largest quadrilateral contour, assuming it represents the document.
+5. **Warp Perspective**: Calculates a transformation matrix and warps the original image into a perfect rectangle.
+6. **Post-processing**: Outputs a clean, grayscale `.jpg` ready for sharing.
 
 ---
 
-### 3. Add input image
+## 🚀 Quick Start
 
-Place your document image inside the project folder and rename it as:
+### 1. Prerequisites
 
-```
-doc.jpg
+Ensure you have Python 3 installed. Clone the repository and navigate into the folder:
+
+```bash
+git clone https://github.com/ananyarajwansh/smart-document-scanner.git
+cd smart-document-scanner
 ```
 
-Make sure the document is clearly visible in the image.
+### 2. Install Dependencies
 
----
+Install the required computer vision libraries:
 
-### 4. Run the program
-
-In the terminal, navigate to the project folder and run:
-
-```
-python3 main.py
+```bash
+pip install -r requirements.txt
 ```
 
----
+### 3. Usage
 
-### 5. Output
+1. Place the photo of your document inside the project folder.
+2. Rename the image exactly to `doc.jpg`. *(Make sure the document edges are clearly visible against the background!)*
+3. Run the script:
 
-After running the program:
-
-* The processed images will be displayed
-* The final scanned document will be saved as:
-
-```
-scanned_output.jpg
+```bash
+python main.py
 ```
 
----
-
-## How it works (in brief)
-
-* The image is converted to grayscale
-* Edges are detected to identify boundaries
-* Contours are used to locate the document
-* A perspective transform is applied
-* The final image is cleaned and saved
+The script will open several matplotlib windows showing the step-by-step transformation. Close the windows to proceed. The final flattened document will be saved in your folder as `scanned_output.jpg`.
 
 ---
 
-## Notes
+## 🔮 Future Improvements
 
-* The results are best when the document is clearly visible and not heavily blurred
-* For already clear images, minimal processing is applied to avoid distortion
-
----
-
-## Future Improvements
-
-* Add PDF export
-* Support multiple documents
-* Improve detection for complex backgrounds
+- Add direct PDF export using `fpdf2`
+- Support multiple document detection in a single image
+- Add Optical Character Recognition (OCR) integration using `tesseract`
+- Implement dynamic command-line arguments for custom image inputs
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-Ananya Raj Wansh
-B.Tech CSE (AI & ML), VIT Bhopal
+**Ananya Raj Wansh**
+*B.Tech CSE (AI & ML), VIT Bhopal*
+- [GitHub](https://github.com/ananyarajwansh)
+- [LinkedIn](https://www.linkedin.com/in/ananya-raj-wansh-758689293/)
